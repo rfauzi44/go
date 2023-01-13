@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+import "github.com/rfauzi44/go/src"
 
 func main() {
 	// var arr = [3]int{5, 6, 3}
@@ -16,17 +16,20 @@ func main() {
 	// c := *b
 	// fmt.Println(c)
 
-	type car struct {
-		color string
-		wheel int
-	}
+	// type car struct {
+	// 	color string
+	// 	wheel int
+	// }
 
-	var ferrari1 car
-	ferrari1.color = "blue"
-	ferrari1.wheel = 5
+	// var ferrari1 car
+	// ferrari1.color = "blue"
+	// ferrari1.wheel = 5
 
-	var ferrari2 *car = &ferrari1
+	// var ferrari2 *car = &ferrari1
 
-	fmt.Println(ferrari1)
-	fmt.Println(ferrari2.wheel)
+	// fmt.Println(ferrari1)
+	// fmt.Println(ferrari2.wheel)
+
+	// GenPass("rizal", "low")
+	src.SearchArray()
 }
