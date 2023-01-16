@@ -14,9 +14,6 @@ func main() {
 	var shape1 Calculate
 	shape1 = Circle{Radius: &radius}
 	fmt.Println(shape1.Area())
-	// var shape2 *src.Calculate
-	// shape2 = &shape1
-	// fmt.Println(*shape2)
 	var side float64 = 4
 	var shape2 Calculate
 	shape2 = Square{Side: &side}
