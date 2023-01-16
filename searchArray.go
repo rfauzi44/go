@@ -1,8 +1,8 @@
-package src
+package main
 
 import "fmt"
 
-func SearchArray() {
+func searchArray() {
 	var arr = []int{5, 6, 10, 8}
 	for i := 0; i < len(arr); i++ {
 		if arr[i] == 7 {

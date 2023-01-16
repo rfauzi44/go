@@ -1,4 +1,4 @@
-package src
+package main
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-func GenPass(password string, level string) {
+func genPass(password string, level string) {
 	var char int
 	if level == "low" {
 		char = 6

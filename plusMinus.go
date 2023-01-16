@@ -1,8 +1,8 @@
-package src
+package main
 
 import "fmt"
 
-func PlusMinus(arr []int32) {
+func plusMinus(arr []int32) {
 	var pos int
 	var neg int
 	var zero int

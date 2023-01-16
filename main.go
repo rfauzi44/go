@@ -1,35 +1,25 @@
 package main
 
-import "github.com/rfauzi44/go/src"
+import (
+	"fmt"
+)
 
 func main() {
-	// var arr = [3]int{5, 6, 3}
-	// fmt.Println(arr)
-	// arr[0] = 6
-	// var u int = arr[0]
-	// u = 5
-	// fmt.Println(u)
+	roundFloat(4.37)
+	var limit int = 50
+	var series1 numberSeries
+	series1 = numberSeries{Limit: &limit}
+	fmt.Println(series1.Even())
+	var radius float64 = 5
+	var shape1 Calculate
+	shape1 = Circle{Radius: &radius}
+	fmt.Println(shape1.Area())
+	// var shape2 *src.Calculate
+	// shape2 = &shape1
+	// fmt.Println(*shape2)
+	var side float64 = 4
+	var shape2 Calculate
+	shape2 = Square{Side: &side}
+	fmt.Println(shape2.Area())
 
-	// var a int = 5
-	// var b *int = &a
-	// fmt.Println(b)
-	// c := *b
-	// fmt.Println(c)
-
-	// type car struct {
-	// 	color string
-	// 	wheel int
-	// }
-
-	// var ferrari1 car
-	// ferrari1.color = "blue"
-	// ferrari1.wheel = 5
-
-	// var ferrari2 *car = &ferrari1
-
-	// fmt.Println(ferrari1)
-	// fmt.Println(ferrari2.wheel)
-
-	// GenPass("rizal", "low")
-	src.SearchArray()
 }
