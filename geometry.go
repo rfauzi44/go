@@ -24,26 +24,26 @@ type square struct {
 	side *float64
 }
 
-func (c circle) area() float64 {
+func (c *circle) area() float64 {
 	return math.Phi * math.Pow(*c.radius, 2)
 }
 
-func (c circle) circ() float64 {
+func (c *circle) circ() float64 {
 	return (2 * math.Phi) * *c.radius
 }
 
-func (c circle) volume() float64 {
+func (c *circle) volume() float64 {
 	return ((4 / 3) * math.Phi) * math.Pow(float64(*c.radius), 3)
 }
 
-func (s square) area() float64 {
+func (s *square) area() float64 {
 	return math.Pow(*s.side, 2)
 }
 
-func (s square) circ() float64 {
+func (s *square) circ() float64 {
 	return 4 * *s.side
 }
 
-func (s square) volume() float64 {
+func (s *square) volume() float64 {
 	return math.Pow(*s.side, 3)
 }
