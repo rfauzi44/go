@@ -4,10 +4,10 @@ import (
 	"fmt"
 )
 
-func Channel() {
+func channel() {
 
 	wg.Add(2)
-	var ch = make(chan int) // bufer chanel
+	var ch = make(chan int, 2) // bufer chanel
 
 	go rOne(ch)
 	go rTwo(ch)
@@ -24,9 +24,12 @@ Routen 2 \\\\\\\\\\\\\\\\\
 
 // get data
 func rOne(ch chan int) {
-	for data := range ch {
-		fmt.Println("datanya = ", data)
-	}
+	// for data := range ch {
+	// 	fmt.Println("datanya = ", data)
+	// }
+
+	i := <-ch
+	fmt.Println(i)
 
 	wg.Done()
 }
@@ -39,5 +42,6 @@ func rTwo(ch chan int) {
 	}()
 
 	ch <- 20 // write channel
+	fmt.Println("kirim")
 	ch <- 50
 }

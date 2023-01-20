@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-func testWeb() {
+func checkWeb() {
 	website := []string{
 		"https://stackoverflow.com/",
 		"https://github.com/",
@@ -20,8 +20,8 @@ func testWeb() {
 	for _, url := range website {
 		wg.Add(1)
 		mtx.Lock()
+
 		go cekWebsite(url)
-		mtx.Unlock()
 
 	}
 
@@ -29,13 +29,18 @@ func testWeb() {
 }
 
 func cekWebsite(url string) {
+
 	defer wg.Done()
+	defer mtx.Unlock()
 
 	if res, err := http.Get(url); err != nil {
+
 		fmt.Println(url, "is done")
 
 	} else {
+
 		fmt.Printf("[%d] %s is up \n", res.StatusCode, url)
+
 	}
 
 }
