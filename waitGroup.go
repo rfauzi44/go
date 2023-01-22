@@ -10,9 +10,9 @@ func waitGP() {
 	ch <- 10
 	i := <-ch
 	fmt.Println(i)
-	ch <- 11
-	j := <-ch
-	fmt.Println(j)
+	// ch <- 11
+	// j := <-ch
+	// fmt.Println(j)
 
 	// wg.Add(2)
 

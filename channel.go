@@ -7,7 +7,7 @@ import (
 func channel() {
 
 	wg.Add(2)
-	var ch = make(chan int, 2) // bufer chanel
+	var ch = make(chan int) // bufer chanel
 
 	go rOne(ch)
 	go rTwo(ch)
@@ -29,8 +29,9 @@ func rOne(ch chan int) {
 	// }
 
 	i := <-ch
+	j := <-ch
 	fmt.Println(i)
-
+	fmt.Println(j)
 	wg.Done()
 }
 
@@ -42,6 +43,6 @@ func rTwo(ch chan int) {
 	}()
 
 	ch <- 20 // write channel
-	fmt.Println("kirim")
+	// fmt.Println("kirim")
 	ch <- 50
 }
