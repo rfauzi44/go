@@ -8,7 +8,7 @@ var wg = sync.WaitGroup{}
 var mtx = sync.Mutex{}
 
 func main() {
-	// // Nomor 0
+	// Nomor 0
 	// a := []int{7, 10, 2, 34, 33, -12, -8, 10}
 	// chn := make(chan int)
 	// go sum(a[:len(a)/2], chn)
@@ -17,7 +17,7 @@ func main() {
 	// y := <-chn
 	// fmt.Println(x + y)
 
-	//Nomor 1
+	// Nomor 1
 	// limit := 40
 	// series := numberSeries{&limit}
 	// wg.Add(4)
@@ -27,12 +27,12 @@ func main() {
 	// go series.fib()
 	// wg.Wait()
 
-	//Nomor 2
+	// Nomor 2
 	// fibChan := make(chan []int)
 	// wg.Add(2)
 
 	// go fibbonaci(fibChan)
-	// go evenOdd(fibChan)
+	// go odd(fibChan)
 
 	// wg.Wait()
 
@@ -42,5 +42,16 @@ func main() {
 	// wg.Add(1)
 	// go plusMinusChannel(arr, ch)
 	// wg.Wait()
+
+	c := make(chan []int, 100)
+
+	wg.Add(3)
+
+	go Fibonacci(c)
+
+	go GanjilGenap(c)
+
+	go Sum(c)
+	wg.Wait()
 
 }

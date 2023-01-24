@@ -4,7 +4,7 @@ import "fmt"
 
 func plusMinusChannel(arr []int, ch chan int) {
 	defer func() {
-		close(ch)
+
 		wg.Done()
 	}()
 	var positive int

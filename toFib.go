@@ -10,7 +10,7 @@ func fibbonaci(ch chan<- []int) {
 	ch <- seriesFib
 }
 
-func evenOdd(ch <-chan []int) {
+func odd(ch <-chan []int) {
 	defer wg.Done()
 	theFib := <-ch
 	var result []int
