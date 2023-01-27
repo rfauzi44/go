@@ -4,45 +4,75 @@ import (
 	"fmt"
 )
 
-func channel() {
+func Fibonacci(ch chan []int) {
 
-	wg.Add(2)
-	var ch = make(chan int) // bufer chanel
+	result := []int{}
+	n1 := 0
+	n2 := 1
+	n3 := n2
 
-	go rOne(ch)
-	go rTwo(ch)
+	for i := 1; i <= 20; i++ {
+		result = append(result, n2)
+		n3 = n1 + n2
+		n1 = n2
+		n2 = n3
+		if n2 > 20 {
+			break
+		}
+	}
 
-	wg.Wait()
+	fmt.Println("Bilangan Fibonacci: ", result)
+
+	ch <- result
+	// close(ch)
+
+	// Sender
+
+	wg.Done()
 
 }
 
-/*
-Main \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-Routen 1 \\\\\\\\\\\\\\\\\
-Routen 2 \\\\\\\\\\\\\\\\\
-*/
+func GanjilGenap(ch chan []int) {
 
-// get data
-func rOne(ch chan int) {
-	// for data := range ch {
-	// 	fmt.Println("datanya = ", data)
-	// }
+	resultGanjil := []int{}
+	resultGenap := []int{}
 
-	i := <-ch
-	j := <-ch
-	fmt.Println(i)
-	fmt.Println(j)
+	fibo := <-ch
+
+	for _, v := range fibo {
+		if v%2 != 0 {
+			resultGanjil = append(resultGanjil, v)
+		}
+		if v%2 == 0 {
+			resultGenap = append(resultGenap, v)
+		}
+
+	}
+
+	fmt.Print("Bilangan Ganjil: ", resultGanjil)
+	fmt.Println()
+	fmt.Print("Bilangan Genap: ", resultGenap)
+	fmt.Println()
+
+	// Receiver
+
+	ch <- resultGanjil
+
 	wg.Done()
 }
 
-// routine send data
-func rTwo(ch chan int) {
-	defer func() {
-		close(ch)
-		wg.Done()
-	}()
+func Sum(ch chan []int) {
 
-	ch <- 20 // write channel
-	// fmt.Println("kirim")
-	ch <- 50
+	num := <-ch
+
+	result := 0
+	for _, v := range num {
+		result += v
+
+	}
+
+	fmt.Println("Hasil sum: ", result)
+
+	wg.Done()
+
 }
