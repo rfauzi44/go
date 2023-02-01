@@ -8,4 +8,5 @@ var wg = sync.WaitGroup{}
 var mtx = sync.Mutex{}
 
 func main() {
+
 }
