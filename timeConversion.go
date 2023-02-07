@@ -6,18 +6,14 @@
 package main
 
 import (
-	"log"
 	"strconv"
 )
 
 func timeConversion(s string) string {
 
 	amorpm := s[len(s)-2 : len(s)]
-	front := s[:2]
-	frontInt, err := strconv.Atoi(front)
-	if err != nil {
-		log.Fatal(err)
-	}
+	var frontInt int
+	frontInt, _ = strconv.Atoi(s[:2])
 	var frontResult string
 
 	if amorpm == "PM" {
@@ -37,6 +33,5 @@ func timeConversion(s string) string {
 
 	}
 
-	final := frontResult + s[2:(len(s)-2)]
-	return final
+	return frontResult + s[2:(len(s)-2)]
 }
