@@ -12,6 +12,7 @@ import (
 func timeConversion(s string) string {
 
 	amorpm := s[len(s)-2 : len(s)]
+
 	var frontInt int
 	frontInt, _ = strconv.Atoi(s[:2])
 	var frontResult string
