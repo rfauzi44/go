@@ -1,13 +1,11 @@
 package main
 
-import "fmt"
-
-type numberSeries struct {
+type numberSeriesReturn struct {
 	limit *int
 }
 
-func (n numberSeries) even() {
-	defer wg.Done()
+func (n numberSeriesReturn) even() []int {
+
 	var evens []int
 	for i := 1; i <= *n.limit; i++ {
 		if i%2 == 0 {
@@ -15,11 +13,11 @@ func (n numberSeries) even() {
 		}
 
 	}
-	fmt.Println(evens)
+	return evens
 }
 
-func (n numberSeries) odd() {
-	defer wg.Done()
+func (n numberSeriesReturn) odd() []int {
+
 	var odds []int
 	for i := 1; i <= *n.limit; i++ {
 		if i%2 != 0 {
@@ -27,11 +25,11 @@ func (n numberSeries) odd() {
 		}
 
 	}
-	fmt.Println(odds)
+	return odds
 }
 
-func (n numberSeries) primes() {
-	defer wg.Done()
+func (n numberSeriesReturn) primes() []int {
+
 	var primes []int
 	for i := 2; i <= *n.limit; i++ {
 		isPrime := true
@@ -45,11 +43,11 @@ func (n numberSeries) primes() {
 			primes = append(primes, i)
 		}
 	}
-	fmt.Println(primes)
+	return primes
 }
 
-func (n numberSeries) fib() {
-	defer wg.Done()
+func (n numberSeriesReturn) fib() []int {
+
 	var fibSeq []int
 	a, b := 0, 1
 	for i := 0; i < *n.limit; i++ {
@@ -59,5 +57,5 @@ func (n numberSeries) fib() {
 		fibSeq = append(fibSeq, a)
 		a, b = b, a+b
 	}
-	fmt.Println(fibSeq)
+	return fibSeq
 }
